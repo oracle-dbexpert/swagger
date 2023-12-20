@@ -2,7 +2,11 @@ openapi: 3.0.2
 info:
   version: 1.0.1
   title: "OCI Database Services Module"
-  description: 'Provides an evergreen source for all Oracle Database service information.'
+  description: >
+        Provides an evergreen source for all Oracle Database service information.
+        <br/> 
+        <br/> 
+        Developers and PMs utilize these APIs as a single source of truth. Service changes are viewable on [DB Expert Announcements](https://apexadb.oracle.com/ords/r/dbexpert/dbsn/announcements). 
   contact:
     name: DB Expert
     url: https://www.oracle.com/dbexpert
