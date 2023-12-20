@@ -2,7 +2,7 @@ openapi: 3.0.2
 info:
   version: 1.0.1
   title: "OCI Database Services Module"
-  description: ''
+  description: 'Provides an evergreen source for all Oracle Database service information.'
   contact:
     name: DB Expert
     url: https://www.oracle.com/dbexpert
