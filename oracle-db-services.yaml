@@ -98,7 +98,7 @@ paths:
         description: >
           The input JSON of customer requirements.
           
-          Use the GET request [/matchServicesParams](#/Service%20APIs/get_v1_matchServicesParams) for indepth details about available inputs.
+          Send a GET request to [/matchServicesParams](#/Service%20APIs/get_v1_matchServicesParams) for indepth details about available inputs.
           
         required: true
         content:
