@@ -1,6 +1,6 @@
 openapi: 3.0.2
 info:
-  version: 1.0.1
+  version: 1.0.2
   title: "OCI Database Services Module"
   description: >
         Provides an evergreen source for all Oracle Database service information.
@@ -67,3 +67,78 @@ paths:
             type: string
             pattern: ^[^/]+$
           description: implicit
+  /v1/matchServicesParams:
+    get:
+      description: >
+        List example input JSONs to send to [/matchServices](#/Service%20APIs/post_v1_matchServices) POST request and all available inputs.
+      tags:
+        - Service APIs
+      responses:
+        '200':
+          description: The queried record.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+  /v1/matchServices:
+    post:
+      description: Send requirements for your cloud database and recieve a response with which services meet them.
+      tags:
+        - Service APIs
+      responses:
+        '200':
+          description: The queried record.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+      requestBody:
+        description: >
+          The input JSON of customer requirements.
+          
+          Use the GET request [/matchServicesParams](#/Service%20APIs/get_v1_matchServicesParams) for indepth details about available inputs.
+          
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                DB_TYPE: S
+                DEPLOYMENT_MODEL: ''
+                CPU: 2
+                STORAGE: 1
+                MAX_IOPS: 0
+                MAX_THROUGHPUT: 0
+                GROW_CPU_CAPACITY_NO_DOWNTIME: ''
+                AUTO_SCALING: ''
+                STORAGE_AUTO_SCALE: ''
+                K_READS_SEC: 0
+                K_WRITES_SEC: 0
+                MGMT_MODEL: ''
+                SERVICE_LEVEL_NINES: 0
+                DOWNTIME_OPTIONS: ''
+                SLA: ''
+                BACKUP_ARCHIVE: ''
+                BACKUP_RETENTION: ''
+                DB_FEATURES: []
+                MAINT_WINDOW: ''
+                PREVIEW_VALIDATE_PATCHES: ''
+                OPS_ACCESS_CONTROL: ''
+                ACCESS_CONTROLS: []
+                DB_BINARY_LEVEL_CONTROL: ''
+                TARGET_DB: []
+                DESIGNATED_SERVICE_LOCATION: ''
+                PLATFORM_REQUIREMENTS: []
+                DB_EDITION: []
+                DB_OPTIONS:
+                - 86
+                - 20
+                EM_PACKS: []
+                OPEN_SRC_DB: ''
+                MONGO_COMPATIBLE_API: ''
+                SENSITIVE_DATA_TYPES: []
+                USAGE_TYPE: []
+                PACKAGED_APPS: []
