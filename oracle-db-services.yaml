@@ -24,8 +24,11 @@ paths:
         <br/> 
         See our Database Expert Resources [compare-all](https://apexadb.oracle.com/ords/r/dbexpert/dbsn/compare-all) grid for a human-readable version.
         <br/>
+        <br/>
         <b>Quick Start:</b>
+        <br/>
             [Postman - Service API Collection](https://www.postman.com/material-specialist-65390837/workspace/oracle-dbexpert/collection/33150157-fda14db8-32c9-4b7c-8693-5a8986e48f23?action=share&creator=33150157)
+        <br/>
             [Postman - Example Service API Workflow](https://www.postman.com/material-specialist-65390837/workspace/oracle-dbexpert/flow/65d7930bfcf698003121e271)
         
         
@@ -41,7 +44,16 @@ paths:
                 properties: {}
   /v1/ids:
     get:
-      description: List all available OCI Database Service IDs.
+      description: >
+        List all available OCI Database Service IDs.
+        <br/>
+        <br/>
+        <b>Quick Start:</b>
+        <br/>
+        [Postman - Service API Collection](https://www.postman.com/material-specialist-65390837/workspace/oracle-dbexpert/collection/33150157-fda14db8-32c9-4b7c-8693-5a8986e48f23?action=share&creator=33150157)
+        <br/>
+        [Postman - Example Service API Workflow](https://www.postman.com/material-specialist-65390837/workspace/oracle-dbexpert/flow/65d7930bfcf698003121e271)
+
       tags:
         - Service APIs
       responses:
@@ -54,7 +66,17 @@ paths:
                 properties: {}
   /v1/{id}:
     get:
-      description: Retrieve detailed information about a single OCI Database Service via an [ID](#/Service%20APIs/get_v1_ids).
+      description: >
+        Retrieve detailed information about a single OCI Database Service via an [ID](#/Service%20APIs/get_v1_ids).
+        <br/>
+        <br/>
+        <b>Quick Start:</b>
+        <br/>
+        [Postman - Service API Collection](https://www.postman.com/material-specialist-65390837/workspace/oracle-dbexpert/collection/33150157-fda14db8-32c9-4b7c-8693-5a8986e48f23?action=share&creator=33150157)
+        <br/>
+        [Postman - Example Service API Workflow](https://www.postman.com/material-specialist-65390837/workspace/oracle-dbexpert/flow/65d7930bfcf698003121e271)
+
+      
       tags:
         - Service APIs
       responses:
@@ -77,6 +99,14 @@ paths:
     get:
       description: >
         List example input JSONs to send to [/matchServices](#/Service%20APIs/post_v1_matchServices) POST request and all available inputs.
+        <br/>
+        <br/>
+        <b>Quick Start:</b>
+        <br/>
+        [Postman - Service API Collection](https://www.postman.com/material-specialist-65390837/workspace/oracle-dbexpert/collection/33150157-fda14db8-32c9-4b7c-8693-5a8986e48f23?action=share&creator=33150157)
+        <br/>
+        [Postman - Example Service API Workflow](https://www.postman.com/material-specialist-65390837/workspace/oracle-dbexpert/flow/65d7930bfcf698003121e271)
+
       tags:
         - Service APIs
       responses:
@@ -89,7 +119,17 @@ paths:
                 properties: {}
   /v1/matchServices:
     post:
-      description: Send requirements for your cloud database and recieve a response with which services meet them.
+      description: > 
+        Send requirements for your cloud database and recieve a response with which services meet them.
+        <br/>
+        <br/>
+        <b>Quick Start:</b>
+        <br/>
+        [Postman - Service API Collection](https://www.postman.com/material-specialist-65390837/workspace/oracle-dbexpert/collection/33150157-fda14db8-32c9-4b7c-8693-5a8986e48f23?action=share&creator=33150157)
+        <br/>
+        [Postman - Example Service API Workflow](https://www.postman.com/material-specialist-65390837/workspace/oracle-dbexpert/flow/65d7930bfcf698003121e271)
+
+      
       tags:
         - Service APIs
       responses:
