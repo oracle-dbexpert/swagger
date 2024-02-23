@@ -22,7 +22,13 @@ paths:
         Key attributes and characteristics for all Oracle Database cloud services, MySQL Database Service with HeatWave, NoSQL Database Cloud Service, OCI Database with PostgreSQL, and IaaS options for Oracle Database.
         <br/> 
         <br/> 
-        See our Database Expert Resources [compare-all](https://apexadb.oracle.com/ords/r/dbexpert/dbsn/compare-all) grid for a human-readable version. 
+        See our Database Expert Resources [compare-all](https://apexadb.oracle.com/ords/r/dbexpert/dbsn/compare-all) grid for a human-readable version.
+        <br/>
+        <b>Quick Start:</b>
+            [Postman - Service API Collection](https://www.postman.com/material-specialist-65390837/workspace/oracle-dbexpert/collection/33150157-fda14db8-32c9-4b7c-8693-5a8986e48f23?action=share&creator=33150157)
+            [Postman - Example Service API Workflow](https://www.postman.com/material-specialist-65390837/workspace/oracle-dbexpert/flow/65d7930bfcf698003121e271)
+        
+        
       tags:
         - Service APIs
       responses:
