@@ -7,6 +7,14 @@ info:
         <br/> 
         <br/> 
         Developers and PMs utilize these APIs as a single source of truth. Service changes are viewable on [DB Expert Announcements](https://apexadb.oracle.com/ords/r/dbexpert/dbsn/announcements). 
+        <br/>
+        <br/>
+        <b>Quick Start:</b>
+        <br/>
+        [Postman - Service API Collection](https://www.postman.com/material-specialist-65390837/workspace/oracle-dbexpert/collection/33150157-fda14db8-32c9-4b7c-8693-5a8986e48f23?action=share&creator=33150157)
+        <br/>
+        [Postman - Example Service API Workflow](https://www.postman.com/material-specialist-65390837/workspace/oracle-dbexpert/flow/65d7930bfcf698003121e271)
+        
   contact:
     name: DB Expert
     url: https://www.oracle.com/dbexpert
