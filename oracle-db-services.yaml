@@ -6,23 +6,21 @@ info:
         Provides an evergreen source for all Oracle Database service information.
         <br/> 
         <br/> 
-        Developers and PMs utilize these APIs as a single source of truth. Service changes are viewable on [DB Expert Announcements](https://apexadb.oracle.com/ords/r/dbexpert/dbsn/announcements). 
-        <br/>
-        <br/>
-        <b>Quick Start:</b>
-        <br/>
-        [Postman - Service API Collection](https://www.postman.com/material-specialist-65390837/workspace/oracle-dbexpert/collection/33150157-fda14db8-32c9-4b7c-8693-5a8986e48f23?action=share&creator=33150157)
-        <br/>
-        [Postman - Example Service API Workflow (Create a Fork)](https://www.postman.com/material-specialist-65390837/workspace/oracle-dbexpert/flow/65d7930bfcf698003121e271)
+        Developers and PMs utilize these APIs as a single source of truth. Service changes are viewable on [DB Services Explorer Announcements](https://apexadb.oracle.com/ords/r/dbexpert/dbsn/announcements). 
         
   contact:
-    name: DB Expert
-    url: https://www.oracle.com/dbexpert
+    name: DB Services Explorer
+    url: https://oracle.com/dbx
     email: dbexpert_ww_grp@oracle.com
-servers:
-  - url: https://apexadb.oracle.com/ords/dbexpert/db-services/
-tags:
-  - name: Service APIs
+  servers:
+    - url: https://apexadb.oracle.com/ords/dbexpert/db-services/
+  tags:
+    - name: Service APIs
+  components:
+    securitySchemes:
+      basicAuth:
+        type: http
+        scheme: basic
 paths:
   /v1/all:
     get:
@@ -30,71 +28,33 @@ paths:
         Key attributes and characteristics for all Oracle Database cloud services, MySQL Database Service with HeatWave, NoSQL Database Cloud Service, OCI Database with PostgreSQL, and IaaS options for Oracle Database.
         <br/> 
         <br/> 
-        See our Database Expert Resources [compare-all](https://apexadb.oracle.com/ords/r/dbexpert/dbsn/compare-all) grid for a human-readable version.
-        <br/>
-        <br/>
-        <b>Quick Start:</b>
-        <br/>
-            [Postman - Service API Collection](https://www.postman.com/material-specialist-65390837/workspace/oracle-dbexpert/collection/33150157-fda14db8-32c9-4b7c-8693-5a8986e48f23?action=share&creator=33150157)
-        <br/>
-            [Postman - Example Service API Workflow (Create a Fork)](https://www.postman.com/material-specialist-65390837/workspace/oracle-dbexpert/flow/65d7930bfcf698003121e271)
-        
+        See our Database Services Explorer Resources [compare-all](https://apexadb.oracle.com/ords/r/dbexpert/dbsn/compare-all) grid for a human-readable version.
         
       tags:
         - Service APIs
       responses:
         '200':
           description: The queried record.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties: {}
+
   /v1/ids:
     get:
       description: >
         List all available OCI Database Service IDs.
-        <br/>
-        <br/>
-        <b>Quick Start:</b>
-        <br/>
-        [Postman - Service API Collection](https://www.postman.com/material-specialist-65390837/workspace/oracle-dbexpert/collection/33150157-fda14db8-32c9-4b7c-8693-5a8986e48f23?action=share&creator=33150157)
-        <br/>
-        [Postman - Example Service API Workflow (Create a Fork)](https://www.postman.com/material-specialist-65390837/workspace/oracle-dbexpert/flow/65d7930bfcf698003121e271)
-
       tags:
         - Service APIs
       responses:
         '200':
           description: The queried record.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties: {}
+
   /v1/{id}:
     get:
       description: >
         Retrieve detailed information about a single OCI Database Service via an [ID](#/Service%20APIs/get_v1_ids).
-        <br/>
-        <br/>
-        <b>Quick Start:</b>
-        <br/>
-        [Postman - Service API Collection](https://www.postman.com/material-specialist-65390837/workspace/oracle-dbexpert/collection/33150157-fda14db8-32c9-4b7c-8693-5a8986e48f23?action=share&creator=33150157)
-        <br/>
-        [Postman - Example Service API Workflow (Create a Fork)](https://www.postman.com/material-specialist-65390837/workspace/oracle-dbexpert/flow/65d7930bfcf698003121e271)
-
-      
       tags:
         - Service APIs
       responses:
         '200':
           description: The queried record.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties: {}
       parameters:
         - name: id
           in: path
@@ -103,3 +63,215 @@ paths:
             type: string
             pattern: ^[^/]+$
           description: implicit
+
+  /v1/BYOLAdvisor:
+      get:
+        servers:
+        - url: https://apexadb-dev.oracle.com/ords/dbexpert/db-services/
+        description: >
+          Returns BYOL Advisor recommendations based on provided input values.
+        tags:
+          - APIs in Development
+        responses:
+          '200':
+            description: BYOL Advisor recommendation.
+        parameters:
+          - name: EDITION_TYPE
+            in: query
+            required: true
+            schema:
+              type: string
+              enum: [EE, SE]
+            description: >
+              Oracle Database Edition.
+              Options:
+                - EE (Enterprise Edition)
+                - SE (Standard Edition)
+
+          - name: PROCESSOR_LICENSES
+            in: query
+            required: false
+            schema:
+              type: integer
+              minimum: 1
+            description: >
+              Number of Processor Licenses.
+
+          - name: NUPS_LICENSES
+            in: query
+            required: false
+            schema:
+              type: integer
+              minimum: 1
+            description: >
+              Number of Named User Plus licenses.
+
+  /v1/cloudUpgradeAdvisor:
+    get:
+      servers:
+        - url: https://apexadb-dev.oracle.com/ords/dbexpert/db-services/
+      description: >
+        Receive upgrade recommendations for your Oracle Database when migrating from third-party cloud environments to Oracle Multicloud.
+      tags:
+        - APIs in Development
+      responses:
+        '200':
+          description: Cloud Upgrade Advisor recommendation.
+      parameters:
+        - name: CURRENT_CLOUD
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [AWS_EC2, AWS_RDS, GCP, AZ]
+          description: >
+            The current cloud provider.
+            Options:
+              - AWS_EC2 (AWS EC2)
+              - AWS_RDS (AWS RDS)
+              - GCP (Google Cloud Platform)
+              - AZ (Microsoft Azure Platform)
+
+        - name: EDITION_TYPE
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [EE, SE]
+          description: >
+            Oracle Database Edition.
+            Options:
+              - EE (Enterprise Edition)
+              - SE (Standard Edition)
+
+        - name: VCPUS
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+          description: >
+            Number of vCPUs (Enter an integer value).
+
+        - name: MT_ON_ACE
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [Y, N]
+          description: >
+            Is Multitenant (MT) on Autonomous Cloud Environment (ACE)?
+            Options:
+              - Y (Yes)
+              - N (No)
+
+  /v1/migrationMethodsAdvisor:
+    get:
+      security:
+      - basicAuth: []
+      servers:
+        - url: https://apexadb-dev.oracle.com/ords/dbexpert/db-services/
+      description: >
+        Retrieve recommended migration methods for moving your on-premises or cloud Oracle Database to supported Oracle cloud targets, based on your source and target environments.
+      tags:
+        - APIs in Development
+      responses:
+        '200':
+          description: Recommended migration methods for the provided source and target environment.
+      parameters:
+        - name: SOURCE_DB_VERSION
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [11.2.0.4, 12.1.0.2, 12.2.0.1, 18c, 19c, 21c]
+          description: >
+            Source database version.
+        
+        - name: SOURCE_DB_TYPE
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [SE, EE]
+          description: >
+            Source database edition: SE (Standard Edition), EE (Enterprise Edition).
+
+        - name: TARGET_SERVICE
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - ADBCC
+              - ADBD
+              - ADBDAWS
+              - ADBS
+              - ADBSAZURE
+              - ADBSGCP
+              - BASE
+              - BASEDB_AZURE
+              - BASEDB_GCP
+              - EXACC
+              - EXACS
+              - EXAXS
+              - EXAXS_AZURE
+              - EXAAWS
+              - EXAAZURE
+              - EXAGCP
+          description: >
+            Target database service.
+
+        - name: TARGET_DB_VERSION
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [11.2.0.4, 12.1.0.2, 19c, 26ai]
+          description: >
+            Target database version.
+
+        - name: ENDIANNESS
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [big, little_linux, little_others]
+          description: >
+            Database endianness of source environment.
+        
+        - name: CDB
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [CDB, NONCDB]
+          description: >
+            Source database architecture (CDB or NONCDB).
+
+        - name: MULTIPLE_PDBS
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [R]
+          description: >
+            Specify if multiple PDBs are required ("R" for required).
+
+        - name: MIGRATION_MODE
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [offline, online]
+          description: >
+            Migration mode (offline or online).
+
+        - name: MIGRATION_TYPE
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [logical, physical]
+          description: >
+            Migration type (logical or physical).
