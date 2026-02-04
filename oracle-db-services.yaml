@@ -3,24 +3,26 @@ info:
   version: 1.0.2
   title: "OCI Database Services Module"
   description: >
-        Provides an evergreen source for all Oracle Database service information.
-        <br/> 
-        <br/> 
-        Developers and PMs utilize these APIs as a single source of truth. Service changes are viewable on [DB Services Explorer Announcements](https://apexadb.oracle.com/ords/r/dbexpert/dbsn/announcements). 
-        
+    Provides an evergreen source for all Oracle Database service information.
+    <br/> 
+    <br/> 
+    Developers and PMs utilize these APIs as a single source of truth. Service changes are viewable on [DB Services Explorer Announcements](https://apexadb.oracle.com/ords/r/dbexpert/dbsn/announcements). 
   contact:
     name: DB Services Explorer
     url: https://oracle.com/dbx
     email: dbexpert_ww_grp@oracle.com
-  servers:
-    - url: https://apexadb.oracle.com/ords/dbexpert/db-services/
-  tags:
-    - name: Service APIs
-  components:
-    securitySchemes:
-      basicAuth:
-        type: http
-        scheme: basic
+
+servers:
+  - url: https://apexadb.oracle.com/ords/dbexpert/db-services/
+
+tags:
+  - name: Service APIs
+
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
 paths:
   /v1/all:
     get:
