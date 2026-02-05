@@ -66,34 +66,6 @@ paths:
             pattern: ^[^/]+$
           description: implicit
 
-  /v1/BYOLAdvisorParams:
-      get:
-        servers:
-        - url: https://apexadb-dev.oracle.com/ords/dbexpert/db-services/
-        description: >
-          Returns a structured dictionary of all valid input parameters, values, and their descriptions for use with the BYOL Advisor API (/v1/BYOLAdvisor). 
-          <br><br>
-          Use this endpoint when constructing requests to /v1/BYOLAdvisor to ensure all input values are valid and well understood.
-        tags:
-          - Input Metadata
-        responses:
-          '200':
-            description: Valid parameter values
-
-  /v1/cloudUpgradeAdvisorParams:
-      get:
-        servers:
-        - url: https://apexadb-dev.oracle.com/ords/dbexpert/db-services/
-        description: >
-          Returns a structured dictionary of all valid input parameters, values, and their descriptions for use with the Cloud Upgrade Advisor API (/v1/cloudUpgradeAdvisor). 
-          <br><br>
-          Use this endpoint when constructing requests to /v1/cloudUpgradeAdvisor to ensure all input values are valid and well understood.
-        tags:
-          - Input Metadata
-        responses:
-          '200':
-            description: Valid parameter values
-
   /v1/migrationMethodsAdvisorParams:
       get:
         security:
@@ -105,115 +77,10 @@ paths:
           <br> <br>
           Use this endpoint when constructing requests to /v1/migrationMethodsAdvisor to ensure all input values are valid and well understood.
         tags:
-          - Input Metadata
+          - Migration APIs
         responses:
           '200':
             description: Valid parameter values
-
-  /v1/BYOLAdvisor:
-      get:
-        servers:
-        - url: https://apexadb-dev.oracle.com/ords/dbexpert/db-services/
-        description: >
-          Returns BYOL Advisor recommendations based on provided input values.
-          <br><br>
-          For valid input values and parameter explanations, refer to the BYOL Advisor Parameters endpoint (/v1/BYOLAdvisorParams).
-        tags:
-          - APIs in Development
-        responses:
-          '200':
-            description: BYOL Advisor recommendation.
-        parameters:
-          - name: EDITION_TYPE
-            in: query
-            required: true
-            schema:
-              type: string
-              enum: [EE, SE]
-            description: >
-              Oracle Database Edition.
-              Options:
-                - EE (Enterprise Edition)
-                - SE (Standard Edition)
-
-          - name: PROCESSOR_LICENSES
-            in: query
-            required: false
-            schema:
-              type: integer
-              minimum: 1
-            description: >
-              Number of Processor Licenses.
-
-          - name: NUPS_LICENSES
-            in: query
-            required: false
-            schema:
-              type: integer
-              minimum: 1
-            description: >
-              Number of Named User Plus licenses.
-
-  /v1/cloudUpgradeAdvisor:
-    get:
-      servers:
-        - url: https://apexadb-dev.oracle.com/ords/dbexpert/db-services/
-      description: >
-        Receive upgrade recommendations for your Oracle Database when migrating from third-party cloud environments to Oracle Multicloud.
-        <br><br>
-        For valid input values and parameter explanations, refer to the Cloud Upgrade Advisor Parameters endpoint (/v1/cloudUpgradeAdvisorParams).
-      tags:
-        - APIs in Development
-      responses:
-        '200':
-          description: Cloud Upgrade Advisor recommendation.
-      parameters:
-        - name: CURRENT_CLOUD
-          in: query
-          required: false
-          schema:
-            type: string
-            enum: [AWS_EC2, AWS_RDS, GCP, AZ]
-          description: >
-            The current cloud provider.
-            Options:
-              - AWS_EC2 (AWS EC2)
-              - AWS_RDS (AWS RDS)
-              - GCP (Google Cloud Platform)
-              - AZ (Microsoft Azure Platform)
-
-        - name: EDITION_TYPE
-          in: query
-          required: true
-          schema:
-            type: string
-            enum: [EE, SE]
-          description: >
-            Oracle Database Edition.
-            Options:
-              - EE (Enterprise Edition)
-              - SE (Standard Edition)
-
-        - name: VCPUS
-          in: query
-          required: false
-          schema:
-            type: integer
-            minimum: 1
-          description: >
-            Number of vCPUs (Enter an integer value).
-
-        - name: MT_ON_ACE
-          in: query
-          required: false
-          schema:
-            type: string
-            enum: [Y, N]
-          description: >
-            Is Multitenant (MT) on Autonomous Cloud Environment (ACE)?
-            Options:
-              - Y (Yes)
-              - N (No)
 
   /v1/migrationMethodsAdvisor:
     get:
@@ -226,7 +93,7 @@ paths:
         <br><br>
         For valid input values and parameter explanations, refer to the Migration Methods Parameters endpoint (/v1/migrationMethodsAdvisorParams).
       tags:
-        - APIs in Development
+        - Migration APIs
       responses:
         '200':
           description: Recommended migration methods for the provided source and target environment.
@@ -327,3 +194,136 @@ paths:
             enum: [LOGICAL, PHYSICAL]
           description: >
             Migration type (logical or physical).
+
+  /v1/BYOLAdvisorParams:
+      get:
+        servers:
+        - url: https://apexadb-dev.oracle.com/ords/dbexpert/db-services/
+        description: >
+          Returns a structured dictionary of all valid input parameters, values, and their descriptions for use with the BYOL Advisor API (/v1/BYOLAdvisor). 
+          <br><br>
+          Use this endpoint when constructing requests to /v1/BYOLAdvisor to ensure all input values are valid and well understood.
+        tags:
+          - BYOL Advisor APIs (DEV)
+        responses:
+          '200':
+            description: Valid parameter values
+
+  /v1/BYOLAdvisor:
+      get:
+        servers:
+        - url: https://apexadb-dev.oracle.com/ords/dbexpert/db-services/
+        description: >
+          Returns BYOL Advisor recommendations based on provided input values.
+          <br><br>
+          For valid input values and parameter explanations, refer to the BYOL Advisor Parameters endpoint (/v1/BYOLAdvisorParams).
+        tags:
+          - BYOL Advisor APIs (DEV)
+        responses:
+          '200':
+            description: BYOL Advisor recommendation.
+        parameters:
+          - name: EDITION_TYPE
+            in: query
+            required: true
+            schema:
+              type: string
+              enum: [EE, SE]
+            description: >
+              Oracle Database Edition.
+              Options:
+                - EE (Enterprise Edition)
+                - SE (Standard Edition)
+
+          - name: PROCESSOR_LICENSES
+            in: query
+            required: false
+            schema:
+              type: integer
+              minimum: 1
+            description: >
+              Number of Processor Licenses.
+
+          - name: NUPS_LICENSES
+            in: query
+            required: false
+            schema:
+              type: integer
+              minimum: 1
+            description: >
+              Number of Named User Plus licenses.
+
+  /v1/cloudUpgradeAdvisorParams:
+      get:
+        servers:
+        - url: https://apexadb-dev.oracle.com/ords/dbexpert/db-services/
+        description: >
+          Returns a structured dictionary of all valid input parameters, values, and their descriptions for use with the Cloud Upgrade Advisor API (/v1/cloudUpgradeAdvisor). 
+          <br><br>
+          Use this endpoint when constructing requests to /v1/cloudUpgradeAdvisor to ensure all input values are valid and well understood.
+        tags:
+          - Upgrade Advisor APIs (DEV)
+        responses:
+          '200':
+            description: Valid parameter values
+
+  /v1/cloudUpgradeAdvisor:
+    get:
+      servers:
+        - url: https://apexadb-dev.oracle.com/ords/dbexpert/db-services/
+      description: >
+        Receive upgrade recommendations for your Oracle Database when migrating from third-party cloud environments to Oracle Multicloud.
+        <br><br>
+        For valid input values and parameter explanations, refer to the Cloud Upgrade Advisor Parameters endpoint (/v1/cloudUpgradeAdvisorParams).
+      tags:
+        - Upgrade Advisor APIs (DEV)
+      responses:
+        '200':
+          description: Cloud Upgrade Advisor recommendation.
+      parameters:
+        - name: CURRENT_CLOUD
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [AWS_EC2, AWS_RDS, GCP, AZ]
+          description: >
+            The current cloud provider.
+            Options:
+              - AWS_EC2 (AWS EC2)
+              - AWS_RDS (AWS RDS)
+              - GCP (Google Cloud Platform)
+              - AZ (Microsoft Azure Platform)
+
+        - name: EDITION_TYPE
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [EE, SE]
+          description: >
+            Oracle Database Edition.
+            Options:
+              - EE (Enterprise Edition)
+              - SE (Standard Edition)
+
+        - name: VCPUS
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+          description: >
+            Number of vCPUs (Enter an integer value).
+
+        - name: MT_ON_ACE
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [Y, N]
+          description: >
+            Is Multitenant (MT) on Autonomous Cloud Environment (ACE)?
+            Options:
+              - Y (Yes)
+              - N (No)
