@@ -238,7 +238,7 @@ paths:
           required: false
           schema:
             type: string
-            enum: [big, little_linux, little_others]
+            enum: [BIG, LITTLE_LINUX, LITTLE_OTHERS]
           description: >
             Database endianness of source environment.
         
@@ -265,7 +265,7 @@ paths:
           required: false
           schema:
             type: string
-            enum: [offline, online]
+            enum: [OFFLINE, ONLINE]
           description: >
             Migration mode (offline or online).
 
@@ -274,6 +274,6 @@ paths:
           required: false
           schema:
             type: string
-            enum: [logical, physical]
+            enum: [LOGICAL, PHYSICAL]
           description: >
             Migration type (logical or physical).
