@@ -66,12 +66,54 @@ paths:
             pattern: ^[^/]+$
           description: implicit
 
+  /v1/BYOLAdvisorParams:
+      get:
+        servers:
+        - url: https://apexadb-dev.oracle.com/ords/dbexpert/db-services/
+        description: >
+          Returns a structured dictionary of all valid input parameters, values, and their descriptions for use with the [BYOL Advisor](/v1/BYOLAdvisor) API. 
+          Use this endpoint when constructing requests to /v1/BYOLAdvisor to ensure all input values are valid and well understood.
+        tags:
+          - Input Metadata
+        responses:
+          '200':
+            description: Valid parameter values
+
+  /v1/cloudUpgradeAdvisorParams:
+      get:
+        servers:
+        - url: https://apexadb-dev.oracle.com/ords/dbexpert/db-services/
+        description: >
+          Returns a structured dictionary of all valid input parameters, values, and their descriptions for use with the [Cloud Upgrade Advisor](/v1/cloudUpgradeAdvisor) API. 
+          Use this endpoint when constructing requests to /v1/cloudUpgradeAdvisor to ensure all input values are valid and well understood.
+        tags:
+          - Input Metadata
+        responses:
+          '200':
+            description: Valid parameter values
+
+  /v1/migrationMethodsAdvisorParams:
+      get:
+        security:
+        - basicAuth: []
+        servers:
+        - url: https://apexadb-dev.oracle.com/ords/dbexpert/db-services/
+        description: >
+          Returns a structured dictionary of all valid input parameters, values, and their descriptions for use with the [Migration Methods Advisor](/v1/migrationMethodsAdvisor) API. 
+          Use this endpoint when constructing requests to /v1/migrationMethodsAdvisor to ensure all input values are valid and well understood.
+        tags:
+          - Input Metadata
+        responses:
+          '200':
+            description: Valid parameter values
+
   /v1/BYOLAdvisor:
       get:
         servers:
         - url: https://apexadb-dev.oracle.com/ords/dbexpert/db-services/
         description: >
           Returns BYOL Advisor recommendations based on provided input values.
+          For valid input values and parameter explanations, refer to [BYOL Advisor Parameters](/v1/BYOLAdvisorParams).
         tags:
           - APIs in Development
         responses:
@@ -114,6 +156,7 @@ paths:
         - url: https://apexadb-dev.oracle.com/ords/dbexpert/db-services/
       description: >
         Receive upgrade recommendations for your Oracle Database when migrating from third-party cloud environments to Oracle Multicloud.
+        For valid input values and parameter explanations, refer to [Cloud Upgrade Advisor Parameters](/v1/cloudUpgradeAdvisorParams).
       tags:
         - APIs in Development
       responses:
@@ -175,6 +218,7 @@ paths:
         - url: https://apexadb-dev.oracle.com/ords/dbexpert/db-services/
       description: >
         Retrieve recommended migration methods for moving your on-premises or cloud Oracle Database to supported Oracle cloud targets, based on your source and target environments.
+        For valid input values and parameter explanations, refer to [Migration Methods Parameters](/v1/migrationMethodsAdvisorParams).
       tags:
         - APIs in Development
       responses:
