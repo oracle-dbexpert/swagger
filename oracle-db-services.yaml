@@ -28,9 +28,6 @@ paths:
     get:
       description: >
         Key attributes and characteristics for all Oracle Database cloud services, MySQL Database Service with HeatWave, NoSQL Database Cloud Service, OCI Database with PostgreSQL, and IaaS options for Oracle Database.
-        <br/> 
-        <br/> 
-        See our Database Services Explorer Resources [compare-all](https://apexadb.oracle.com/ords/r/dbexpert/dbsn/compare-all) grid for a human-readable version.
         
       tags:
         - Service APIs
@@ -94,7 +91,7 @@ paths:
       description: >
         Retrieve recommended migration methods for moving your on-premises or cloud Oracle Database to supported Oracle cloud targets, based on your source and target environments.
         <br><br>
-        The ordering of migration methods in the API reflects recommendation weight (most recommended/match first).
+        <b> The ordering of migration methods in the API reflects recommendation weight (most recommended/match first). <b>
         <br><br>
         For valid input values and parameter explanations, refer to the Migration Methods Parameters endpoint (/v1/migrationMethodsAdvisorParams).
         <br/><br/>
@@ -214,7 +211,7 @@ paths:
           <br/><br/>
           To access the BYOL Advisor tool:
           <br/><br/>
-          1. Open [Cloud Tools](https://your.cloud.tools.link).
+          1. Open [Cloud Tools](https://apexadb.oracle.com/ords/r/dbexpert/dbsn/home).
           <br/><br/>
           2. Locate the 'BYOL Advisor' card on the dashboard.
           <br/><br/>
@@ -238,7 +235,7 @@ paths:
           <br/><br/>
           To access the BYOL Advisor tool:
           <br/><br/>
-          1. Open [Cloud Tools](https://your.cloud.tools.link).
+          1. Open [Cloud Tools](https://apexadb.oracle.com/ords/r/dbexpert/dbsn/home).
           <br/><br/>
           2. Locate the 'BYOL Advisor' card on the dashboard.
           <br/><br/>
@@ -292,7 +289,7 @@ paths:
           <br/><br/>
           To access the Cloud Upgrade Advisor tool:
           <br/><br/>
-          1. Open [Cloud Tools](https://your.cloud.tools.link).
+          1. Open [Cloud Tools](https://apexadb.oracle.com/ords/r/dbexpert/dbsn/home).
           <br/><br/>
           2. Locate the 'Cloud Upgrade Advisor' card on the dashboard.
           <br/><br/>
@@ -316,7 +313,7 @@ paths:
         <br/><br/>
         To access the Cloud Upgrade Advisor tool:
         <br/><br/>
-        1. Open [Cloud Tools](https://your.cloud.tools.link).
+        1. Open [Cloud Tools](https://apexadb.oracle.com/ords/r/dbexpert/dbsn/home).
         <br/><br/>
         2. Locate the 'Cloud Upgrade Advisor' card on the dashboard.
         <br/><br/>
