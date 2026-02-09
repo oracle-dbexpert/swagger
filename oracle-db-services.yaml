@@ -68,14 +68,14 @@ paths:
         security:
         - basicAuth: []
         servers:
-        - url: https://apexadb-dev.oracle.com/ords/dbexpert/db-services/
+        - url: https://apexadb.oracle.com/ords/dbexpert/db-services/
         description: >
           Returns a structured dictionary of all valid input parameters, values, and their descriptions for use with the Migration Methods Advisor API (/v1/migrationMethodsAdvisor). 
           <br> <br>
           Use this endpoint when constructing requests to /v1/migrationMethodsAdvisor to ensure all input values are valid and well understood.
           <br/><br/>
           For instructions and more information, please refer to the 
-          [Migration Methods Advisor](https://apexadb-dev.oracle.com/ords/r/dbexpert/migration-methods/home) — see that page for full usage details and context.
+          [Migration Methods Advisor](https://apexadb.oracle.com/ords/r/dbexpert/migration-methods/home) — see that page for full usage details and context.
         tags:
           - Migration APIs
         responses:
@@ -87,7 +87,7 @@ paths:
       security:
       - basicAuth: []
       servers:
-        - url: https://apexadb-dev.oracle.com/ords/dbexpert/db-services/
+        - url: https://apexadb.oracle.com/ords/dbexpert/db-services/
       description: >
         Retrieve recommended migration methods for moving your on-premises or cloud Oracle Database to supported Oracle cloud targets, based on your source and target environments.
         <br><br>
@@ -96,7 +96,7 @@ paths:
         For valid input values and parameter explanations, refer to the Migration Methods Parameters endpoint (/v1/migrationMethodsAdvisorParams).
         <br/><br/>
         For instructions and more information, please refer to the 
-        [Migration Methods Advisor](https://apexadb-dev.oracle.com/ords/r/dbexpert/migration-methods/home) — see that page for full usage details and context.
+        [Migration Methods Advisor](https://apexadb.oracle.com/ords/r/dbexpert/migration-methods/home) — see that page for full usage details and context.
       tags:
         - Migration APIs
       responses:
@@ -119,7 +119,7 @@ paths:
             type: string
             enum: [SE, EE]
           description: >
-            Source database edition: SE (Standard Edition), EE (Enterprise Edition).
+            Source database edition: SE (Standard Edition), EE (Enterprise Edition). If not specified, default is EE.
 
         - name: TARGET_SERVICE
           in: query
